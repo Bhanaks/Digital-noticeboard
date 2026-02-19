@@ -6,7 +6,7 @@ Student login
 Add notices
 View notices
 Separate admin and student pages
-🛠 Technologies Used:
+ Technologies Used:
 HTML
 CSS
 JavaScript

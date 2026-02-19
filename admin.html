@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Dashboard</title>
+  <link rel="stylesheet" href="admin.css">
+</head>
+<body>
+  <div class="header">
+    <div class="header-content">
+      <div class="header-left">
+        <div class="logo">👨‍💼</div>
+        <div>
+          <h1>Admin Dashboard</h1>
+          <p>Full control over department notices</p>
+        </div>
+      </div>
+      <button class="btn-logout" onclick="logout()">Logout</button>
+    </div>
+  </div>
+
+  <div class="container">
+    <!-- Statistics Cards -->
+    <div class="stats-grid">
+      <div class="stat-card stat-high">
+        <div class="stat-icon">🔴</div>
+        <div class="stat-info">
+          <h3 id="highCount">0</h3>
+          <p>High Priority</p>
+        </div>
+      </div>
+      <div class="stat-card stat-medium">
+        <div class="stat-icon">🟡</div>
+        <div class="stat-info">
+          <h3 id="mediumCount">0</h3>
+          <p>Medium Priority</p>
+        </div>
+      </div>
+      <div class="stat-card stat-low">
+        <div class="stat-icon">🟢</div>
+        <div class="stat-info">
+          <h3 id="lowCount">0</h3>
+          <p>Low Priority</p>
+        </div>
+      </div>
+      <div class="stat-card stat-total">
+        <div class="stat-icon">📊</div>
+        <div class="stat-info">
+          <h3 id="totalCount">0</h3>
+          <p>Total Notices</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Add Notice Section -->
+    <div class="add-notice-card">
+      <h2>📝 Create New Notice</h2>
+      <div class="form-grid">
+        <div class="form-group">
+          <label for="title">Notice Title *</label>
+          <input type="text" id="title" placeholder="Enter notice title">
+        </div>
+
+        <div class="form-group">
+          <label for="category">Category *</label>
+          <select id="category">
+            <option value="Exam">Exam</option>
+            <option value="Event">Event</option>
+            <option value="Holiday">Holiday</option>
+            <option value="General">General</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="priority">Priority Level *</label>
+          <select id="priority">
+            <option value="high">🔴 High Priority</option>
+            <option value="medium" selected>🟡 Medium Priority</option>
+            <option value="low">🟢 Low Priority</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="expiry">Expiry Date *</label>
+          <input type="date" id="expiry">
+        </div>
+
+        <div class="form-group full-width">
+          <label for="content">Notice Content *</label>
+          <textarea id="content" placeholder="Enter detailed notice content" rows="4"></textarea>
+        </div>
+
+        <div class="form-actions full-width">
+          <button class="btn btn-publish" onclick="addNotice()">
+            ✓ Publish Notice
+          </button>
+          <button class="btn btn-clear" onclick="clearForm()">
+            ✕ Clear Form
+          </button>
+          <button class="btn btn-danger" onclick="clearAllNotices()">
+            🗑️ Delete All Notices
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Filter Section -->
+    <div class="filter-section">
+      <h2>📋 Manage All Notices</h2>
+      <div class="filter-controls">
+        <select id="categoryFilter" onchange="displayNotices()">
+          <option value="All">All Categories</option>
+          <option value="Exam">Exam</option>
+          <option value="Event">Event</option>
+          <option value="Holiday">Holiday</option>
+          <option value="General">General</option>
+        </select>
+        <select id="priorityFilter" onchange="displayNotices()">
+          <option value="All">All Priorities</option>
+          <option value="high">High Priority</option>
+          <option value="medium">Medium Priority</option>
+          <option value="low">Low Priority</option>
+        </select>
+      </div>
+    </div>
+
+    <div id="noticeList" class="notice-grid"></div>
+  </div>
+
+  <!-- Edit Modal -->
+  <div id="editModal" class="modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2>✏️ Edit Notice</h2>
+        <button class="close-btn" onclick="closeEditModal()">&times;</button>
+      </div>
+      <div class="modal-body">
+        <input type="hidden" id="editIndex">
+        <div class="form-group">
+          <label for="editTitle">Title</label>
+          <input type="text" id="editTitle">
+        </div>
+        <div class="form-group">
+          <label for="editCategory">Category</label>
+          <select id="editCategory">
+            <option value="Exam">Exam</option>
+            <option value="Event">Event</option>
+            <option value="Holiday">Holiday</option>
+            <option value="General">General</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="editPriority">Priority</label>
+          <select id="editPriority">
+            <option value="high">🔴 High Priority</option>
+            <option value="medium">🟡 Medium Priority</option>
+            <option value="low">🟢 Low Priority</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="editExpiry">Expiry Date</label>
+          <input type="date" id="editExpiry">
+        </div>
+        <div class="form-group">
+          <label for="editContent">Content</label>
+          <textarea id="editContent" rows="4"></textarea>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-publish" onclick="saveEdit()">Save Changes</button>
+        <button class="btn btn-clear" onclick="closeEditModal()">Cancel</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="common.js"></script>
+  <script src="admin.js"></script>
+</body>
+</html>

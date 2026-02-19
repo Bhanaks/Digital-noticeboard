@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Department Digital Notice Board</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <div class="hero-section">
+      <h1 class="main-title">📢 Department Digital Notice Board</h1>
+      <p class="subtitle">Stay Connected. Stay Informed. Never Miss an Update.</p>
+    </div>
+
+    <div class="features">
+      <div class="feature-card">
+        <div class="icon">🚨</div>
+        <h3>Priority Alerts</h3>
+        <p>High, Medium, and Low priority notices with color-coded indicators</p>
+      </div>
+      <div class="feature-card">
+        <div class="icon">👥</div>
+        <h3>Role-Based Access</h3>
+        <p>Customized dashboards for Students, Teachers, and Admins</p>
+      </div>
+      <div class="feature-card">
+        <div class="icon">⏰</div>
+        <h3>Smart Expiry</h3>
+        <p>Automatic removal of expired notices to keep content fresh</p>
+      </div>
+      <div class="feature-card">
+        <div class="icon">🎨</div>
+        <h3>Modern Design</h3>
+        <p>Beautiful, colorful interface with smooth animations</p>
+      </div>
+    </div>
+
+    <div class="cta-buttons">
+      <button class="btn btn-primary" onclick="window.location.href='login.html'">
+        Get Started
+      </button>
+      <button class="btn btn-secondary" onclick="window.location.href='login.html'">
+        Login
+      </button>
+    </div>
+
+    <div class="info-section">
+      <h3>🎓 Perfect for Educational Departments</h3>
+      <p>Manage exam schedules, event announcements, holidays, and general notices all in one place!</p>
+    </div>
+    <button id="viewBtn" onclick="viewed()">View Notice</button>
+<p id="viewCount"></p>
+<script>
+const KEY = "homepage_view_count";
+const SEEN_KEY = "homepage_seen";  
+
+let count = localStorage.getItem(KEY) || 0;
+document.getElementById("viewCount").innerText = "Seen: " + count;
+
+if (localStorage.getItem(SEEN_KEY)) {
+    document.getElementById("viewBtn").disabled = true;
+    document.getElementById("viewBtn").innerText = "Seen ✔";
+}
+
+function viewed() {
+    if (!localStorage.getItem(SEEN_KEY)) {
+        count++;
+        localStorage.setItem(KEY, count);
+        localStorage.setItem(SEEN_KEY, "yes");
+
+        document.getElementById("viewCount").innerText = "Seen: " + count;
+        document.getElementById("viewBtn").disabled = true;
+        document.getElementById("viewBtn").innerText = "Seen ✔";
+    }
+}
+</script>
+  </div>
+</body>
+</html>

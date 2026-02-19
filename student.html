@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Dashboard</title>
+  <link rel="stylesheet" href="student.css">
+</head>
+<body>
+  <div class="header">
+    <div class="header-content">
+      <div class="header-left">
+        <div class="logo">🎓</div>
+        <div>
+          <h1>Student Dashboard</h1>
+          <p>View all department notices</p>
+        </div>
+      </div>
+      <button class="btn-logout" onclick="logout()">Logout</button>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="filter-section">
+      <div class="filter-group">
+        <label for="categoryFilter">📂 Category:</label>
+        <select id="categoryFilter" onchange="displayNotices()">
+          <option value="All">All Categories</option>
+          <option value="Exam">Exam</option>
+          <option value="Event">Event</option>
+          <option value="Holiday">Holiday</option>
+          <option value="General">General</option>
+        </select>
+      </div>
+
+      <div class="filter-group">
+        <label for="priorityFilter">🚦 Priority:</label>
+        <select id="priorityFilter" onchange="displayNotices()">
+          <option value="All">All Priorities</option>
+          <option value="high">High Priority</option>
+          <option value="medium">Medium Priority</option>
+          <option value="low">Low Priority</option>
+        </select>
+      </div>
+
+      <div class="notice-count">
+        Total Notices: <span id="noticeCount">0</span>
+      </div>
+    </div>
+
+    <div id="noticeList" class="notice-grid"></div>
+  </div>
+
+  <script src="common.js"></script>
+  <script src="student.js"></script>
+</body>
+</html>

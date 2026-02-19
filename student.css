@@ -1,0 +1,267 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+  min-height: 100vh;
+}
+
+.header {
+  background: white;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  padding: 20px 0;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.header-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.logo {
+  font-size: 3rem;
+}
+
+.header-left h1 {
+  color: #4facfe;
+  font-size: 1.8rem;
+  margin-bottom: 5px;
+}
+
+.header-left p {
+  color: #666;
+  font-size: 0.9rem;
+}
+
+.btn-logout {
+  padding: 10px 25px;
+  background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+  color: white;
+  border: none;
+  border-radius: 25px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn-logout:hover {
+  transform: scale(1.05);
+  box-shadow: 0 5px 15px rgba(245, 87, 108, 0.3);
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 30px 20px;
+}
+
+.filter-section {
+  background: white;
+  padding: 25px;
+  border-radius: 20px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+  margin-bottom: 30px;
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.filter-group {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.filter-group label {
+  font-weight: 600;
+  color: #333;
+}
+
+.filter-group select {
+  padding: 10px 15px;
+  border: 2px solid #e0e0e0;
+  border-radius: 10px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  background: white;
+}
+
+.filter-group select:focus {
+  outline: none;
+border-color: #4facfe;
+}
+.notice-count {
+background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+color: white;
+padding: 10px 20px;
+border-radius: 20px;
+font-weight: 600;
+}
+.notice-count span {
+font-size: 1.2rem;
+}
+.notice-grid {
+display: grid;
+grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+gap: 25px;
+animation: fadeIn 0.6s ease;
+}
+.notice-card {
+background: white;
+border-radius: 20px;
+overflow: hidden;
+box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+transition: all 0.3s ease;
+}
+.notice-card:hover {
+transform: translateY(-5px);
+box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+.priority-bar {
+height: 6px;
+}
+.priority-high {
+background: linear-gradient(90deg, #ff416c, #ff4b2b);
+}
+.priority-medium {
+background: linear-gradient(90deg, #f7b733, #fc4a1a);
+}
+.priority-low {
+background: linear-gradient(90deg, #56ab2f, #a8e063);
+}
+.notice-content {
+padding: 25px;
+}
+.notice-header {
+display: flex;
+justify-content: space-between;
+align-items: flex-start;
+margin-bottom: 15px;
+gap: 10px;
+}
+.notice-title {
+color: #333;
+font-size: 1.4rem;
+font-weight: 700;
+flex: 1;
+}
+.priority-badge {
+padding: 6px 12px;
+border-radius: 20px;
+font-size: 0.75rem;
+font-weight: 700;
+text-transform: uppercase;
+color: white;
+white-space: nowrap;
+}
+.badge-high {
+background: linear-gradient(135deg, #ff416c, #ff4b2b);
+}
+.badge-medium {
+background: linear-gradient(135deg, #f7b733, #fc4a1a);
+}
+.badge-low {
+background: linear-gradient(135deg, #56ab2f, #a8e063);
+}
+.category-tag {
+display: inline-block;
+background: #e3f2fd;
+color: #1976d2;
+padding: 5px 15px;
+border-radius: 15px;
+font-size: 0.85rem;
+font-weight: 600;
+margin-bottom: 12px;
+}
+.notice-text {
+color: #555;
+line-height: 1.7;
+margin-bottom: 20px;
+font-size: 1rem;
+}
+.notice-meta {
+border-top: 2px solid #f0f0f0;
+padding-top: 15px;
+display: flex;
+justify-content: space-between;
+color: #888;
+font-size: 0.85rem;
+}
+.meta-item {
+display: flex;
+align-items: center;
+gap: 5px;
+}
+.empty-state {
+text-align: center;
+padding: 60px 20px;
+background: white;
+border-radius: 20px;
+box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+}
+.empty-state-icon {
+font-size: 5rem;
+margin-bottom: 20px;
+}
+.empty-state h3 {
+color: #4facfe;
+font-size: 1.8rem;
+margin-bottom: 10px;
+}
+.empty-state p {
+color: #666;
+font-size: 1.1rem;
+}
+@keyframes fadeIn {
+from {
+opacity: 0;
+}
+to {
+opacity: 1;
+}
+}
+@keyframes slideUp {
+from {
+opacity: 0;
+transform: translateY(20px);
+}
+to {
+opacity: 1;
+transform: translateY(0);
+}
+}
+@media (max-width: 768px) {
+.notice-grid {
+grid-template-columns: 1fr;
+}
+.filter-section {
+flex-direction: column;
+align-items: stretch;
+}
+.filter-group {
+flex-direction: column;
+align-items: stretch;
+}
+.filter-group select {
+width: 100%;
+}
+}
